@@ -63,7 +63,6 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
     public void populateTables(SQLiteDatabase database) {
         ContentValues values = new ContentValues();
-        //adding breads
         values.put(MySQLiteHelper.COLUMN_NAME, "White");
         database.insert(MySQLiteHelper.TABLE_BREAD, null, values);
         values.put(MySQLiteHelper.COLUMN_NAME, "Wheat");
@@ -81,7 +80,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         values.put(MySQLiteHelper.COLUMN_NAME, "Roasted Garlic");
         database.insert(MySQLiteHelper.TABLE_BREAD, null, values);
 
-        //adding dressings
+
         values.put(MySQLiteHelper.COLUMN_NAME, "Chipotle Southwest");
         database.insert(MySQLiteHelper.TABLE_DRESSING, null, values);
         values.put(MySQLiteHelper.COLUMN_NAME, "Honey Mustard");
@@ -101,7 +100,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         values.put(MySQLiteHelper.COLUMN_NAME, "Hot Sauce");
         database.insert(MySQLiteHelper.TABLE_DRESSING, null, values);
 
-        //adding cheeses
+
         values.put(MySQLiteHelper.COLUMN_NAME, "Natural Cheddar");
         database.insert(MySQLiteHelper.TABLE_CHEESE, null, values);
         values.put(MySQLiteHelper.COLUMN_NAME, "Mozzarella");
@@ -111,7 +110,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         values.put(MySQLiteHelper.COLUMN_NAME, "Shredded");
         database.insert(MySQLiteHelper.TABLE_CHEESE, null, values);
 
-        //adding seasonings
+
         values.put(MySQLiteHelper.COLUMN_NAME, "Salt");
         database.insert(MySQLiteHelper.TABLE_SEASONING, null, values);
         values.put(MySQLiteHelper.COLUMN_NAME, "Pepper");
@@ -121,7 +120,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         values.put(MySQLiteHelper.COLUMN_NAME, "Parmesan");
         database.insert(MySQLiteHelper.TABLE_SEASONING, null, values);
 
-        //adding veggies
+
         values.put(MySQLiteHelper.COLUMN_NAME, "Avocado");
         database.insert(MySQLiteHelper.TABLE_VEGGIE, null, values);
         values.put(MySQLiteHelper.COLUMN_NAME, "Banana Peppers");
@@ -145,7 +144,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         values.put(MySQLiteHelper.COLUMN_NAME, "Tomatoes");
         database.insert(MySQLiteHelper.TABLE_VEGGIE, null, values);
 
-        //adding meats
+
         values.put(MySQLiteHelper.COLUMN_NAME, "Roasted Chicken");
         database.insert(MySQLiteHelper.TABLE_MEAT, null, values);
         values.put(MySQLiteHelper.COLUMN_NAME, "Salami");

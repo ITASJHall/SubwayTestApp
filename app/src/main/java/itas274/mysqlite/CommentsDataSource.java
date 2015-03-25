@@ -60,7 +60,6 @@ public class CommentsDataSource {
 
     public Comment getComment(int itemId, int id){
         String table;
-        //switch to pull records from the correct table
         switch (itemId) {
             case 1: table = MySQLiteHelper.TABLE_BREAD;
                 break;
@@ -92,7 +91,6 @@ public class CommentsDataSource {
         Random r = new Random();
         int[] arrayTwo = new int[14];
 
-        //Size of Sub
         Comment size = new Comment();
         if(ran[0] == 1){
             size.setComment("6 inch");
@@ -100,14 +98,12 @@ public class CommentsDataSource {
             size.setComment("Footlong");
         } comments.add(size);
 
-        //Adding bacon
         if(ran[2] == 5){
             Comment bacon = new Comment();
             bacon.setComment("Add Bacon");
             comments.add(bacon);
         }
 
-        //Adding meat and double meat
         if(ran[1] == 20){
             Comment doubleMeat = new Comment();
             doubleMeat.setComment("Double Meat");
@@ -119,10 +115,8 @@ public class CommentsDataSource {
             comments.add(getComment(6,ran[3]));
         }
 
-        //Bread type
         comments.add(getComment(1,ran[7]));
 
-        //adding cheese and double cheese
         if(ran[8] == 1){
             Comment doubleCheese = new Comment();
             doubleCheese.setComment("Double Cheese");
@@ -134,47 +128,28 @@ public class CommentsDataSource {
             comments.add(getComment(3,ran[12]));
         }
 
-        //Is it Toasted
         if(ran[5] == 1){
             Comment toasted = new Comment();
             toasted.setComment("Toasted");
             comments.add(toasted);
         }
 
-        //Number of Veggies and adding that Number
-        //TODO: Shorten code using loops
         if(ran[4] == 1){
             Comment veg = new Comment();
             veg.setComment("No Veg");
-            comments.add(veg);
         }else if(ran[4] >1 && ran[4] != 11){
-            ArrayList<Integer> arrayThree = new ArrayList<Integer>();
             switch (ran[4]){
                 case 2:
                     arrayTwo[10] = r.nextInt(12-min)+min;
-                    while(arrayTwo[10] == ran[10]){arrayTwo[10] = r.nextInt(12-min)+min;}
                     comments.add(getComment(5,arrayTwo[10]));
                     comments.add(getComment(5,ran[10]));
                     break;
                 case 3:
-                    //first veg
-                    arrayThree.add(ran[10]);
-                    Log.d("test1","  "+ arrayThree.size());
-                    //second veg
                     arrayTwo[10] = r.nextInt(12-min)+min;
-                    while(arrayThree.contains(arrayTwo[10])){arrayTwo[10] = r.nextInt(12-min)+min;}
-                    arrayThree.add(arrayTwo[10]);
-                    Log.d("test1","  "+ arrayThree.size());
-                    //third veg
+                    comments.add(getComment(5,arrayTwo[10]));
                     arrayTwo[10] = r.nextInt(12-min)+min;
-                    while(arrayThree.contains(arrayTwo[10])){arrayTwo[10] = r.nextInt(12-min)+min;}
-                    arrayThree.add(arrayTwo[10]);
-                    Log.d("test1","  "+ arrayThree.size());
-
-                    //adding all veg
-                    for(int i=0; i<arrayThree.size(); i++) {
-                        Log.d("test",""+i+"  "+ arrayThree.get(i));
-                        comments.add(getComment(5, arrayThree.get(i)));}
+                    comments.add(getComment(5,arrayTwo[10]));
+                    comments.add(getComment(5,ran[10]));
                     break;
                 case 4:
                     arrayTwo[10] = r.nextInt(12-min)+min;
@@ -285,38 +260,32 @@ public class CommentsDataSource {
                     comments.add(getComment(5,ran[10]));
             }
         }else if(ran[4] == 11){
-            for(int i=1; i<12; i++){
-                comments.add(getComment(5,i));
-            }
-
+            comments.add(getComment(5,1));
+            comments.add(getComment(5,2));
+            comments.add(getComment(5,3));
+            comments.add(getComment(5,4));
+            comments.add(getComment(5,5));
+            comments.add(getComment(5,6));
+            comments.add(getComment(5,7));
+            comments.add(getComment(5,8));
+            comments.add(getComment(5,9));
+            comments.add(getComment(5,10));
+            comments.add(getComment(5,11));
         }
-        //adding dressing(s)
         if(ran[6] == 1){
             comments.add(getComment(2,ran[11]));
         }else {
             arrayTwo[11] = r.nextInt(10-min)+min;
-            while (arrayTwo[11] == ran[11]){
-                arrayTwo[1] = r.nextInt(10-min)+min;
-            }
             comments.add(getComment(2,arrayTwo[11]));
             comments.add(getComment(2,ran[11]));
         }
 
-        //adding seasonings
         if(ran[13] == 1){
             comments.add(getComment(4,ran[9]));
         }else{
-            if (ran[9] == 3){
-                comments.add(getComment(4,ran[9]));
-                comments.add(getComment(4,4));
-            }else {
-                arrayTwo[9] = r.nextInt(5 - min) + min;
-                while (arrayTwo[9] == ran[9]) {
-                    arrayTwo[9] = r.nextInt(5 - min) + min;
-                }
-                comments.add(getComment(4, arrayTwo[9]));
-                comments.add(getComment(4, ran[9]));
-            }
+            arrayTwo[9] = r.nextInt(5-min)+min;
+            comments.add(getComment(4,arrayTwo[9]));
+            comments.add(getComment(4,ran[9]));
         }
 
         return comments;
