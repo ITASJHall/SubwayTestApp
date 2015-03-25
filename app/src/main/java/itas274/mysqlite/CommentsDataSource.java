@@ -159,18 +159,22 @@ public class CommentsDataSource {
                 case 3:
                     //first veg
                     arrayThree.add(ran[10]);
+                    Log.d("test1","  "+ arrayThree.size());
                     //second veg
                     arrayTwo[10] = r.nextInt(12-min)+min;
                     while(arrayThree.contains(arrayTwo[10])){arrayTwo[10] = r.nextInt(12-min)+min;}
                     arrayThree.add(arrayTwo[10]);
+                    Log.d("test1","  "+ arrayThree.size());
                     //third veg
                     arrayTwo[10] = r.nextInt(12-min)+min;
                     while(arrayThree.contains(arrayTwo[10])){arrayTwo[10] = r.nextInt(12-min)+min;}
                     arrayThree.add(arrayTwo[10]);
+                    Log.d("test1","  "+ arrayThree.size());
 
                     //adding all veg
-                    for(int i=1; i<arrayThree.size(); i++) {
-                        comments.add(getComment(5, arrayThree.indexOf(i)));}
+                    for(int i=0; i<arrayThree.size(); i++) {
+                        Log.d("test",""+i+"  "+ arrayThree.get(i));
+                        comments.add(getComment(5, arrayThree.get(i)));}
                     break;
                 case 4:
                     arrayTwo[10] = r.nextInt(12-min)+min;
